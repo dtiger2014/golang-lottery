@@ -7,6 +7,7 @@ require (
 	github.com/ajg/form v1.5.1 // indirect
 	github.com/flosch/pongo2 v0.0.0-20190707114632-bbf5a6c351f4 // indirect
 	github.com/go-sql-driver/mysql v1.4.1
+	github.com/gomodule/redigo v1.7.1-0.20190724094224-574c33c3df38
 	github.com/google/go-querystring v1.0.0 // indirect
 	github.com/gorilla/schema v1.1.0 // indirect
 	github.com/imkira/go-interpol v1.1.0 // indirect
