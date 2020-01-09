@@ -5,40 +5,71 @@ import (
 	"golang-lottery/dao"
 )
 
+// GiftService :
 type GiftService interface{
-	GetAll() []models.LtGift
+	GetAll(useCache bool) []models.LtGift
 	CountAll() int64
-	Get(id int) *models.LtGift
+	Get(id int, useCache bool) *models.LtGift
 	Delete(id int) error
 	Update(data *models.LtGift, columns []string) error
 	Create(data *models.LtGift) error
+	// GetAllUse(useCache bool) []models.ObjGiftPrize
+	IncrLeftNum(id, num int) (int64, error)
+	DecrLeftNum(id, num int) (int64, error)
 }
 
 type giftService struct {
 	dao *dao.GiftDao
 }
 
+// NewGiftService : 
 func NewGiftService() GiftService {
 	return &giftService{
 		dao: dao.NewGiftDao(nil),
 	}
 }
 
-func (s *giftService)GetAll() []models.LtGift{
+// GetAll :
+func (s *giftService) GetAll(useCache bool) []models.LtGift{
 	return s.dao.GetAll()
 }
-func (s *giftService)CountAll() int64{
+
+// CountAll :
+func (s *giftService) CountAll() int64{
 	return s.dao.CountAll()
 }
-func (s *giftService)Get(id int) *models.LtGift{
+
+// Get :
+func (s *giftService) Get(id int, useCache bool) *models.LtGift{
 	return s.dao.Get(id)
 }
-func (s *giftService)Delete(id int) error{
+
+// Delete : 
+func (s *giftService) Delete(id int) error{
 	return s.dao.Delete(id)
 }
-func (s *giftService)Update(data *models.LtGift, columns []string) error{
+
+// Update : 
+func (s *giftService) Update(data *models.LtGift, columns []string) error{
 	return s.dao.Update(data, columns)
 }
-func (s *giftService)Create(data *models.LtGift) error{
+
+// Create :
+func (s *giftService) Create(data *models.LtGift) error{
 	return s.dao.Create(data)
+}
+
+// GetAllUse : 
+// func (s *giftService) GetAllUse(useCache bool) []models.ObjGiftPrize {
+	
+// }
+
+// IncrLeftNum :
+func (s *giftService) IncrLeftNum(id, num int) (int64, error) {
+	return s.dao.IncrLeftNum(id, num)
+}
+
+// DecrLeftNum :
+func (s *giftService) DecrLeftNum(id, num int) (int64, error) {
+	return s.dao.DecrLeftNum(id, num)
 }
