@@ -117,7 +117,7 @@ func (b *Bootstrapper) Bootstrap() *Bootstrapper {
 
 	// static files
 	b.Favicon(StaticAssets + Favicon)
-	// b.StaticWeb(StaticAssets[1:], StaticAssets)
+	b.HandleDir(StaticAssets[1:], StaticAssets)
 	indexHTML, err := ioutil.ReadFile(StaticAssets + "/index.html")
 	if err == nil {
 		b.StaticContent(StaticAssets[1:] + "/", "text/html", indexHTML)
