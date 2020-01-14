@@ -1,36 +1,5 @@
 version: "3"
 services:
-  # web:
-  #   image: nginx:1.15
-  #   container_name: gmt_nginx
-  #   ports:
-  #     - "8080:80" # gmt
-  #     - "8081:81" # zjzkapi-client
-  #     - "8082:82" # notice
-  #     - "8083:83" # zjzkapi-server
-  #   volumes:
-  #     - ./app/:/var/www/html/:rw # app dir
-  #     - ./nginx/config/conf.d/:/etc/nginx/conf.d/:rw
-  #     - ./nginx/config/nginx.conf:/etc/nginx/nginx.conf:ro
-  #     - ./logs/nginx/:/var/log/nginx/:rw
-  #   networks:
-  #     - front-tier
-
-  # phpfpm:
-  #   build:
-  #     context: ./php
-  #     args:
-  #       PHP_VERSION: 7.3
-  #   container_name: gmt_phpfpm
-  #   volumes:
-  #     - ./app/:/var/www/html/:rw
-  #     - ./php/config/php.ini:/usr/local/etc/php/php.ini:ro
-  #     - ./php/config/php-fpm.conf:/usr/local/etc/php-fpm.d/www.conf:rw
-  #     - ./logs/php/:/var/log/php/:rw
-  #   networks:
-  #     - front-tier
-  #     - back-tier
-
   mysql:
     image: mysql:5.7
     container_name: golang_lottery_mysql
@@ -48,6 +17,20 @@ services:
       MYSQL_USER: "root"
       MYSQL_PASSWORD: "123456"
       MYSQL_ROOT_PASSWORD: "123456"
+
+  redis:
+    # 指定镜像
+    image: redis:5
+    container_name: golang_lottery_redis
+    ports:
+      - 6379:6379
+    volumes:
+      # - "./redis/conf:/usr/local/etc/redis"
+      - "./redis/data:/data"
+    command:
+      redis-server
+    networks:
+      - back-tier
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest

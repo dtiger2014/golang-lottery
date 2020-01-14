@@ -1,5 +1,6 @@
 package conf
 
+// RdsConfig Redis配置信息结构
 type RdsConfig struct {
 	Host string
 	Port int
@@ -8,9 +9,10 @@ type RdsConfig struct {
 	IsRunning bool
 }
 
+// RdsCacheList Redis配置信息
 var RdsCacheList = []RdsConfig{
 	{
-		Host: "127.0.0.1",
+		Host: "192.168.74.121",
 		Port: 6379,
 		User: "",
 		Pwd: "",
@@ -18,4 +20,5 @@ var RdsCacheList = []RdsConfig{
 	},
 }
 
+// RdsCache 实例化Redis缓存
 var RdsCache RdsConfig = RdsCacheList[0]

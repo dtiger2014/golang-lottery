@@ -37,6 +37,7 @@ func (d *BlackipDao) GetAll(page, size int) []models.LtBlackip {
 		Desc("id").
 		Limit(size, offset).
 		Find(&datalist)
+
 	if err != nil {
 		return datalist
 	}
