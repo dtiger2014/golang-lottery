@@ -3,6 +3,7 @@ package services
 import (
 	"golang-lottery/dao"
 	"golang-lottery/models"
+	"golang-lottery/datasource"
 )
 
 // ResultService : 
@@ -27,7 +28,7 @@ type resultService struct {
 // NewResultService :
 func NewResultService() ResultService {
 	return &resultService{
-		dao: dao.NewResultDao(nil),
+		dao: dao.NewResultDao(datasource.InstanceDbMaster()),
 	}
 }
 

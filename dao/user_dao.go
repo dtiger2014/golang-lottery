@@ -43,12 +43,12 @@ func (d *UserDao) GetAll(page, size int) []models.LtUser {
 }
 
 // CountAll :
-func (d *UserDao) CountAll() int64 {
+func (d *UserDao) CountAll() int {
 	num, err := d.engine.Count(&models.LtUser{})
 	if err != nil {
 		return 0
 	}
-	return num
+	return int(num)
 }
 
 // Update :

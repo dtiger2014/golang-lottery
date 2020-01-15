@@ -1,6 +1,7 @@
 package services
 
 import (
+	"golang-lottery/datasource"
 	"golang-lottery/models"
 	"golang-lottery/dao"
 )
@@ -27,7 +28,7 @@ type codeService struct {
 // NewCodeService :
 func NewCodeService() CodeService {
 	return &codeService {
-		dao: dao.NewCodeDao(nil),
+		dao: dao.NewCodeDao(datasource.InstanceDbMaster()),
 	}
 }
 

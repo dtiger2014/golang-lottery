@@ -6,6 +6,7 @@ import(
 	"time"
 	"golang-lottery/dao"
 	"golang-lottery/models"
+	"golang-lottery/datasource"
 )
 
 // UserdayService :
@@ -27,7 +28,7 @@ type userdayService struct {
 // NewUserdayService : 
 func NewUserdayService() UserdayService {
 	return &userdayService {
-		dao: dao.NewUserdayDao(nil),
+		dao: dao.NewUserdayDao(datasource.InstanceDbMaster()),
 	}
 }
 
