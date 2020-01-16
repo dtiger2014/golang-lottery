@@ -17,7 +17,7 @@ type AdminController struct {
 	ServiceBlackip services.BlackipService
 }
 
-// http://
+// Get http://localhost:8080/admin/
 func (c *AdminController) Get() mvc.Result{
 	return mvc.View{
 		Name:"admin/index.html",

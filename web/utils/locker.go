@@ -8,7 +8,7 @@ import(
 )
 
 // LockLuck 加锁，抽奖的时候需要用到的锁，避免一个用户并发多次抽奖
-func LockLuck(uid int) bool {
+func LockLucky(uid int) bool {
 	return lockLuckyServ(uid)
 }
 
@@ -27,7 +27,7 @@ func lockLuckyServ(uid int) bool {
 }
 
 // UnlockLuck 解锁，抽奖的时候需要用到的锁，避免一个用户并发多次抽奖
-func UnlockLuck(uid int) bool {
+func UnlockLucky(uid int) bool {
 	return unlockLuckyServ(uid)
 }
 

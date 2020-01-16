@@ -42,7 +42,7 @@ func resetGroupUserList() {
 }
 
 // IncrUserLuckNum 今天的用户抽奖次数递增，返回递增后的数值
-func IncrUserLuckNum(uid int) int64 {
+func IncrUserLuckyNum(uid int) int64 {
 	i := uid % userFrameSize
 	// 集群的redis统计数递增
 	return incrServUserLuckyNum(i, uid)

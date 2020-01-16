@@ -31,17 +31,17 @@ func Configure(b *bootstrap.Bootstrapper) {
 	adminUser.Register(userService)
 	adminUser.Handle(new(controllers.AdminUserController))
 
-	// adminGift := admin.Party("/gift")
-	// adminGift.Register(giftService)
-	// adminGift.Handle(new(controllers.AdminGiftController))
+	adminGift := admin.Party("/gift")
+	adminGift.Register(giftService)
+	adminGift.Handle(new(controllers.AdminGiftController))
 
 	adminCode := admin.Party("/code")
 	adminCode.Register(codeService)
 	adminCode.Handle(new(controllers.AdminCodeController))
 
-	// adminResult := admin.Party("/result")
-	// adminResult.Register(resultService)
-	// adminResult.Handle(new(controllers.AdminResultController))
+	adminResult := admin.Party("/result")
+	adminResult.Register(resultService)
+	adminResult.Handle(new(controllers.AdminResultController))
 
 	adminBlackip := admin.Party("/blackip")
 	adminBlackip.Register(blackipService)
