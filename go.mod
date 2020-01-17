@@ -28,6 +28,11 @@ require (
 	github.com/yalp/jsonpath v0.0.0-20180802001716-5cc68e5049a0 // indirect
 	github.com/yudai/gojsondiff v1.0.0 // indirect
 	github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82 // indirect
+	golang.org/x/net v0.0.0-20200114155413-6afb5195e5aa // indirect
+	golang.org/x/sys v0.0.0-20200116001909-b77594299b42 // indirect
+	golang.org/x/text v0.3.2 // indirect
+	google.golang.org/genproto v0.0.0-20200115191322-ca5a22157cba // indirect
+	google.golang.org/grpc v1.26.0 // indirect
 	xorm.io/cmd/xorm v0.0.0-20191108140657-006dbf24bb9b // indirect
 	xorm.io/xorm v0.8.1
 )
